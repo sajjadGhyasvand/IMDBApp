@@ -3,10 +3,54 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IMDBMovieApp"
+        xmlns:local="clr-namespace:IMDBMovieApp" WindowStyle="None" Background="LightBlue"
         mc:Ignorable="d" FlowDirection="RightToLeft" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="900">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                CornerRadius="50" Margin="{TemplateBinding Padding}"
+                                Cursor="Hand">
+                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalAlignment}"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="RosyBrown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width=".25*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="BtnClose" Grid.Column="0" Width="40" Click="BtnClose_Click">X</Button>
+            <Button Name="BtnMinimize" Grid.Column="1" Width="40" Click="BtnMinimize_Click">-</Button>
+            <Rectangle Name="RecTop" MouseDown="RecTop_MouseDown" Grid.Column="2" Fill="SandyBrown"/>
+            <TextBlock Grid.Column="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Background="RosyBrown">لیست فیلم‌ها</TextBlock>
+            <Rectangle Grid.Column="4" Fill="SandyBrown"/>
+        </Grid>
+        <Label Grid.Row="1" Background="RosyBrown"/>
+        <Label Grid.Row="2" Background="SandyBrown"/>
     </Grid>
 </Window>
