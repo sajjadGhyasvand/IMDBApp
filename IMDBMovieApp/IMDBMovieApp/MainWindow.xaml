@@ -5,38 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IMDBMovieApp" WindowStyle="None" Background="LightBlue"
         mc:Ignorable="d" FlowDirection="RightToLeft" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="500" Width="900">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="BorderBrush" Value="White"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="2"/>
-            <Setter Property="FontSize" Value="22"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Template" >
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                CornerRadius="50" Margin="{TemplateBinding Padding}"
-                                Cursor="Hand">
-                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalAlignment}"></ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+        Title="MainWindow" Height="650" Width="900" MinHeight="650" MinWidth="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="RosyBrown">
+        <Grid Grid.Row="0" Background="{StaticResource BgPrimary}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -46,11 +22,46 @@
             </Grid.ColumnDefinitions>
             <Button Name="BtnClose" Grid.Column="0" Width="40" Click="BtnClose_Click">X</Button>
             <Button Name="BtnMinimize" Grid.Column="1" Width="40" Click="BtnMinimize_Click">-</Button>
-            <Rectangle Name="RecTop" MouseDown="RecTop_MouseDown" Grid.Column="2" Fill="SandyBrown"/>
+            <Rectangle Name="RecTop" MouseDown="RecTop_MouseDown" Grid.Column="2" Cursor="ScrollAll" Fill="{StaticResource BgSecondary}"/>
             <TextBlock Grid.Column="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Background="RosyBrown">لیست فیلم‌ها</TextBlock>
-            <Rectangle Grid.Column="4" Fill="SandyBrown"/>
+            <Rectangle Grid.Column="4" Fill="{StaticResource BgSecondary}"/>
         </Grid>
-        <Label Grid.Row="1" Background="RosyBrown"/>
-        <Label Grid.Row="2" Background="SandyBrown"/>
+        <Label Grid.Row="1" Background="{StaticResource BgPrimary}"/>
+        <DockPanel Grid.Row="2">
+            <DockPanel.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Margin" Value="4"/>
+                </Style>
+            </DockPanel.Resources>
+            <RepeatButton Name="BtnMoveLeft" DockPanel.Dock="Left" Height="50" Width="50" Click="BtnMoveLeft_Click">
+                <RepeatButton.Background>
+                    <ImageBrush ImageSource="/Content/Icon/chevron-left.png" />
+                </RepeatButton.Background>
+            </RepeatButton>
+            <RepeatButton Name="BtnMoveRight" DockPanel.Dock="Right" Height="50" Width="50" Click="BtnMoveRight_Click">
+                <RepeatButton.Background>
+                    <ImageBrush ImageSource="/Content/Icon/chevron-right.png" />
+                </RepeatButton.Background>
+            </RepeatButton>
+            <ScrollViewer  Name="SVMovieList" Background="{StaticResource BgSecondary}" 
+                      CanContentScroll="False" SnapsToDevicePixels="True" 
+                      VerticalScrollBarVisibility="Disabled"
+                      HorizontalScrollBarVisibility="Hidden">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                    <Image Source="/Content/Image/Django.jpg"></Image>
+                </StackPanel>
+            </ScrollViewer>
+            
+        </DockPanel>
     </Grid>
 </Window>

@@ -27,7 +27,10 @@ namespace IMDBMovieApp
 
         private void RecTop_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+           /* if (e.MiddleButton == MouseButtonState.Released)
+                this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;*/
         }
         private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
@@ -35,7 +38,17 @@ namespace IMDBMovieApp
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+           Application.Current.Shutdown();
+        }
+
+        private void BtnMoveRight_Click(object sender, RoutedEventArgs e)
+        {
+            SVMovieList.LineRight();
+        }
+
+        private void BtnMoveLeft_Click(object sender, RoutedEventArgs e)
+        {
+            SVMovieList.LineLeft();
         }
     }
 }
