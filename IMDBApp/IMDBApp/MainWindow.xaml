@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IMDBApp"
+        xmlns:uc="clr-namespace:IMDBApp.UserControls" 
+        xmlns:local="clr-namespace:IMDBApp.UserControls"
         mc:Ignorable="d" FlowDirection="RightToLeft" WindowStyle="None"  
         WindowStartupLocation="CenterScreen" Title="MainWindow"
         Height="650" Width="900" MinHeight="650" MinWidth="900">
@@ -44,30 +45,16 @@
                            VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden"
                            CanContentScroll="False" SnapsToDevicePixels="True">
                 <StackPanel Name="SpMovieList" Orientation="Horizontal">
-                    <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
-                    <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
-                    <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
-                    <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
-                    <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
-                    <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
-                    <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
-                     <Border Style="{StaticResource BorderStyle}">
-                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
-                    </Border>
+                  <uc:UCImageWithBoarder  Value="1" />
+                  <uc:UCImageWithBoarder  Value="2" />
+                  <uc:UCImageWithBoarder  Value="3" />
+                  <uc:UCImageWithBoarder  Value="4" />
+                  <uc:UCImageWithBoarder  Value="5" />
+                  <uc:UCImageWithBoarder  Value="6" />
+                  <uc:UCImageWithBoarder  Value="7" />
+                  <uc:UCImageWithBoarder  Value="8" />
+                  <uc:UCImageWithBoarder  Value="9" />
+                  <uc:UCImageWithBoarder  Value="10" />
                 </StackPanel>
             </ScrollViewer>
         </DockPanel>

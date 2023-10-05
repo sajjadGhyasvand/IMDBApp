@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\App.xaml
-11407045341
+21450003195
 
-557292272
+6-1133575771
 194183970531
-MainWindow.xaml;
+MainWindow.xaml;UserControls\UCImageWithBoarder.xaml;
 
-True
+False
 

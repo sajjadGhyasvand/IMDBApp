@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace IMDBApp
@@ -11,8 +12,25 @@ namespace IMDBApp
         public MainWindow()
         {
             InitializeComponent();
+            foreach (UIElement child in SpMovieList.Children)
+            {
+                child.MouseDown += Child_MouseDown;
+                child.MouseWheel += Child_MouseWheel;
+            }
         }
-
+        private void Child_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+                SvMovieList.LineLeft();
+            else
+                SvMovieList.LineRight();
+        }
+        private void Child_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var uc = (UserControl)sender;
+            if (uc.Content is Border border)
+                MessageBox.Show($"Tag Value: {border.Tag}");
+        }
         private void BtnClose_OnClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

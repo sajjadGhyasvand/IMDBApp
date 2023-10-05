@@ -20,3 +20,6 @@ C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windo
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\ref\IMDBApp.dll
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\IMDBApp.pdb
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\IMDBApp.genruntimeconfig.cache
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\UserControls\UCImageWithBoarder.baml
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\UserControls\UCImageWithBoarder.g.cs
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
