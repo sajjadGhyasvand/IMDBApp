@@ -1,0 +1,75 @@
+﻿<Window x:Class="IMDBApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IMDBApp"
+        mc:Ignorable="d" FlowDirection="RightToLeft" WindowStyle="None"  
+        WindowStartupLocation="CenterScreen" Title="MainWindow"
+        Height="650" Width="900" MinHeight="650" MinWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="{StaticResource BackgroundColorPrimary}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width=".25*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="BtnClose"  Click="BtnClose_OnClick" Grid.Column="0" Width="40" Height="40" Style="{StaticResource BtnCircleStyle}">X</Button>
+            <Button Name="BtmMinus" Click="BtmMinus_OnClick" Grid.Column="1" Width="40" Height="40" Style="{StaticResource BtnCircleStyle}">_</Button>
+            <Rectangle Name="RecTop" MouseDown="RecTop_OnMouseDown"  Grid.Column="2" Fill="{StaticResource BackgroundColorSecondary}" Cursor="ScrollAll"/>
+            <TextBlock Grid.Column="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">بانک اطلاعاتی فیلم های من</TextBlock>
+            <Rectangle Grid.Column="4" Fill="{StaticResource BackgroundColorSecondary}"/>
+        </Grid>
+        <Rectangle Grid.Row="1" Fill="{StaticResource BackgroundColorPrimary}" Opacity="0.3"/>
+        <DockPanel Grid.Row="2">
+            <DockPanel.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Margin" Value="3"></Setter>
+                </Style>
+            </DockPanel.Resources>
+            <RepeatButton Name="BtnMoveLeft" Click="BtnMoveLeft_OnClick" DockPanel.Dock="Left" Height="50" Width="50">
+                <Image Source="Content/Icons/keyboard-left-arrow-button.png" Stretch="Uniform"/>
+            </RepeatButton>
+            <RepeatButton Name="BtnMoveRight" Click="BtnMoveRight_OnClick"  DockPanel.Dock="Right" Height="50" Width="50">
+                <Image Source="Content/Icons/keyboard-right-arrow-button.png" Stretch="Uniform"/>
+            </RepeatButton>
+            <ScrollViewer  Name="SvMovieList" Background="{StaticResource BackgroundColorSecondary}"
+                           VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden"
+                           CanContentScroll="False" SnapsToDevicePixels="True">
+                <StackPanel Name="SpMovieList" Orientation="Horizontal">
+                    <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                     <Border Style="{StaticResource BorderStyle}">
+                        <Image Source="Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>
