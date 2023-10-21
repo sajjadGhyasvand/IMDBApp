@@ -1,0 +1,5 @@
+C:\Users\S.Ghiasvand\Desktop\New folder (4)\IMDBApp.exe
+C:\Users\S.Ghiasvand\Desktop\New folder (4)\IMDBApp.dll
+C:\Users\S.Ghiasvand\Desktop\New folder (4)\IMDBApp.deps.json
+C:\Users\S.Ghiasvand\Desktop\New folder (4)\IMDBApp.runtimeconfig.json
+C:\Users\S.Ghiasvand\Desktop\New folder (4)\IMDBApp.pdb

@@ -5,7 +5,17 @@
       "ProjectGuid": "5520fa7d-f15d-4e66-b185-f56c95db02dd",
       "DisplayName": "IMDBApp",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "32cf99bc-d164-42e6-99ea-582159338a46": {
+      "ProjectGuid": "32cf99bc-d164-42e6-99ea-582159338a46",
+      "DisplayName": "DataLayer",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

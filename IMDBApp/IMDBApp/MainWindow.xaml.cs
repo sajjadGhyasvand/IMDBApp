@@ -11,12 +11,12 @@ namespace IMDBApp
     {
         public MainWindow()
         {
-            InitializeComponent();
-            foreach (UIElement child in SpMovieList.Children)
-            {
-                child.MouseDown += Child_MouseDown;
-                child.MouseWheel += Child_MouseWheel;
-            }
+                InitializeComponent();
+                foreach (UIElement child in SpMovieList.Children)
+                {
+                    child.MouseDown += Child_MouseDown;
+                    child.MouseWheel += Child_MouseWheel;
+                }      
         }
         private void Child_MouseWheel(object sender, MouseWheelEventArgs e)
         {
@@ -54,12 +54,17 @@ namespace IMDBApp
 
         private void BtnMoveLeft_OnClick(object sender, RoutedEventArgs e)
         {
-            SvMovieList.LineRight();
+            SvMovieList.LineLeft();
         }
 
         private void BtnMoveRight_OnClick(object sender, RoutedEventArgs e)
         {
-            SvMovieList.LineLeft();
+            SvMovieList.LineRight();
+        }
+
+        private void BtnAddMovie_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

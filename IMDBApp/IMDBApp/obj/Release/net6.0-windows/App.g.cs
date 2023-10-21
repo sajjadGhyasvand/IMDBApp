@@ -47,7 +47,7 @@ namespace IMDBApp {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.22.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.23.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -73,7 +73,7 @@ namespace IMDBApp {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.22.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.23.0")]
         public static void Main() {
             IMDBApp.App app = new IMDBApp.App();
             app.InitializeComponent();

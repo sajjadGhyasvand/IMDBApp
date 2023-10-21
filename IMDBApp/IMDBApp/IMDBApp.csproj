@@ -7,4 +7,27 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <Resource Include="Images\add-plus-button.png" />
+    <Resource Include="Images\clapperboard.png" />
+    <Resource Include="Images\connection-indicator.png" />
+    <Resource Include="Images\create-new-pencil-button.png" />
+    <Resource Include="Images\horizontal-line-remove-button.png" />
+    <Resource Include="Images\keyboard-left-arrow-button.png" />
+    <Resource Include="Images\keyboard-right-arrow-button.png" />
+    <Resource Include="Images\rate-star-button.png" />
+    <Resource Include="Images\s-l1600.jpg" />
+    <Resource Include="Images\user-shape.png" />
+    <Resource Include="Images\users-social-symbol.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
