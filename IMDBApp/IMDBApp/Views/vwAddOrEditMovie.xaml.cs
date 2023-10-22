@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DataLayer.Context;
+using DataLayer.Entities;
+using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace IMDBApp.Views
 {
@@ -19,9 +14,53 @@ namespace IMDBApp.Views
     /// </summary>
     public partial class vwAddOrEditMovie : Window
     {
+        public Movie Movie = new Movie();
+        private MovieContext _context = new MovieContext();
+        OpenFileDialog _dialog = new();
         public vwAddOrEditMovie()
         {
             InitializeComponent();
+            this.DataContext = Movie;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtPosterName.Content.ToString()) )
+            {
+                var path = AppDomain.CurrentDomain.BaseDirectory + "\\Images\\Movie\\";
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+                var imageName = Guid.NewGuid().ToString().Replace("-","");  
+                var ext = System.IO.Path.GetExtension(_dialog.SafeFileName);
+                var fullImageName = imageName + ext;
+                File.Copy(_dialog.FileName, path + fullImageName);
+                Movie.Poster = fullImageName;
+            }
+            Movie.CreateDate = System.DateTime.Now;
+            _context.Movies.Add(Movie);
+            _context.SaveChanges();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            cmbDirector.ItemsSource = _context.Directors.ToList();
+            cmbDirector.SelectedIndex = 0;
+            lstCast.ItemsSource = _context.Actors.ToList();
+        }
+
+        private void btnPoster_Click(object sender, RoutedEventArgs e)
+        {
+            _dialog.Filter = "JPG files(*.jpg)|*.jpg|PNG files(*.png)|*.png";
+            if (_dialog.ShowDialog() == true)
+            {
+                txtPosterName.Content = _dialog.FileName;
+                imgPoster.Source = new BitmapImage(new System.Uri(_dialog.FileName));
+            }
         }
     }
 }

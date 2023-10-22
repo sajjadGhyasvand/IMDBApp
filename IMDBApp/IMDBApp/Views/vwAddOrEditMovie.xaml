@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:IMDBApp.Views"
         mc:Ignorable="d" FlowDirection="RightToLeft" WindowStartupLocation="CenterOwner"
         WindowStyle="None" WindowState="Normal" ShowInTaskbar="False"
-        Title="vwAddOrEditMovie" Height="400" Width="300">
+        Title="vwAddOrEditMovie" Height="400" Width="500" Loaded="Window_Loaded">
     <Grid>
         <DockPanel>
             <Grid  DockPanel.Dock="Bottom">
@@ -14,16 +14,79 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Background="Green" Grid.Column="0">افزودن</Button>
-                <Button Background="Red" Grid.Column="1" >انصراف</Button>
+               
             </Grid>
-            <StackPanel>
-                <DockPanel>
-                    <Label DockPanel.Dock="Left">عنوان: </Label>
-                    <TextBox Name="txtTitle" ></TextBox>
+            <Grid>
+                <Grid.Resources>
+                 
+                    <Style TargetType="DockPanel">
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="Width" Value="80"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Column="0" Grid.Row="0">
+                    <Label DockPanel.Dock="Left">عنوان:</Label>
+                    <TextBox Name="txtTitle" Text="{Binding Title}" ></TextBox>
                 </DockPanel>
-                
-            </StackPanel>
+                <DockPanel Grid.Column="1" Grid.Row="0">
+                    <Label DockPanel.Dock="Left">سال ساخت:</Label>
+                    <TextBox Name="txtYear" Text="{Binding Year}" ></TextBox>
+                </DockPanel>
+                <DockPanel Grid.Column="0" Grid.Row="1">
+                    <Label DockPanel.Dock="Left">کارگردان:</Label>
+                    <ComboBox  Name="cmbDirector" DisplayMemberPath="FullName" SelectedValuePath="Id" SelectedValue="{Binding DirectorId}" /> 
+                </DockPanel>
+
+                <DockPanel Grid.Column="1" Grid.Row="1">
+                    <Label DockPanel.Dock="Left">امتیاز IMDB:</Label>
+                    <TextBox Name="txtIMDB"  Text="{Binding IMDBRate}"></TextBox>
+                </DockPanel>
+                <DockPanel Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
+                    <Label DockPanel.Dock="Left">نصویر:</Label>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image Height="100" Name="imgPoster" Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="2" Source="/Images/s-l1600.jpg"/>
+                        <Label Name="txtPosterName"  Content="{Binding Poster}" Grid.Column="0"   Grid.Row="1" BorderThickness="1" BorderBrush="Gray"  Grid.ColumnSpan="2"   />
+                        <Button Name="btnPoster" Grid.Column="1" Grid.Row="1" Content="انتخاب" Foreground="Black" Background="LightGray" Height="20" VerticalAlignment="Top" Click="btnPoster_Click" />
+                    </Grid>
+                </DockPanel>
+                <DockPanel Grid.Column="1" Grid.Row="2">
+                    <Label DockPanel.Dock="Left">بازیگران:</Label>
+                    <ListBox Name="lstCast" Height="100" DisplayMemberPath="FullName" SelectedValuePath="Id"  />
+                </DockPanel>
+                <DockPanel Grid.Column="0" Grid.Row="3">
+                    <Label DockPanel.Dock="Left">توضیح مختصر:</Label>
+                    <TextBox Name="txtTagLine"  Text="{Binding TagLine}" />
+                </DockPanel>
+                <DockPanel Grid.Column="0" Grid.Row="2">
+                    <Label DockPanel.Dock="Left">توضیحات:</Label>
+                    <TextBox Name="txtDescription" Text="{Binding Description}"  Height="100" AcceptsReturn="True"></TextBox>
+                </DockPanel>
+                <Button Name="btnAdd" Background="Green" Height="30" Grid.Column="0" Grid.Row="5" Click="btnAdd_Click">افزودن</Button>
+                <Button Name="btnCancel" Background="Red" Height="30" Grid.Column="1" Grid.Row="5" Click="btnCancel_Click" >انصراف</Button>
+            </Grid>
             
         </DockPanel>
     </Grid>

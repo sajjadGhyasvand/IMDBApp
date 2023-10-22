@@ -22,6 +22,9 @@ namespace DataLayer.Context
         public virtual DbSet<Actor> Actors { get; set; } = null!;
         public virtual DbSet<Director> Directors { get; set; } = null!;
         public virtual DbSet<Genre> Genres { get; set; } = null!;
+        public virtual DbSet<Movie> Movies { get; set; } = null!;
+        public virtual DbSet<ActorMovie> ActorMovies { get; set; } = null!;
+        public virtual DbSet<MovieGenre> MovieGenres { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

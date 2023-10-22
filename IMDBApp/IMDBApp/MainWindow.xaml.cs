@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using IMDBApp.Views;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -64,7 +65,11 @@ namespace IMDBApp
 
         private void BtnAddMovie_Click(object sender, RoutedEventArgs e)
         {
-
+            var vw = new vwAddOrEditMovie()
+            {
+                Owner = this,
+            };
+            vw.ShowDialog();
         }
     }
 }

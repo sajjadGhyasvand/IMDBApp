@@ -75,15 +75,15 @@
                     <TextBlock>The Last Of Us</TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="2" Grid.Column="0">
-                    <Image Width="20" Source="/rate-star-button.png"></Image>
+                    <Image Width="20" Source="/Images/rate-star-button.png"></Image>
                     <TextBlock>8.1</TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="2" Grid.Column="1">
-                    <Image Width="20" Source="/connection-indicator.png"></Image>
+                    <Image Width="20" Source="/Images/connection-indicator.png"></Image>
                     <TextBlock>2022</TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Image Width="20" Source="/clapperboard.png"></Image>
+                    <Image Width="20" Source="/Images/clapperboard.png"></Image>
                     <TextBlock>2022</TextBlock>
                 </DockPanel>
                 <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">خلاصه داستان</TextBlock>
@@ -91,11 +91,11 @@
                     خلاصه تستی جه تست وضعیت 
                 </TextBlock>
                 <DockPanel Grid.Row="6" Grid.Column="0">
-                    <Image Width="20" Source="/users-social-symbol.png"></Image>
+                    <Image Width="20" Source="/Images/users-social-symbol.png"></Image>
                     <TextBlock>بازیگران</TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="6" Grid.Column="1">
-                    <Image Width="20" Source="/user-shape.png"></Image>
+                    <Image Width="20" Source="/Images/user-shape.png"></Image>
                     <TextBlock>کارگردان</TextBlock>
                 </DockPanel>
                 <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
@@ -136,7 +136,7 @@
                            VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden"
                            CanContentScroll="False" SnapsToDevicePixels="True">
                 <StackPanel Name="SpMovieList" Orientation="Horizontal">
-                  <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"    Value="1" />
+                  <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="1" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="2" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="3" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="4" />
