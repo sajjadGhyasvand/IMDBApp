@@ -39,6 +39,7 @@ namespace IMDBApp.Views
             Movie.CreateDate = System.DateTime.Now;
             _context.Movies.Add(Movie);
             _context.SaveChanges();
+            this.DialogResult = true;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

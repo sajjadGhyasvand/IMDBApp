@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:IMDBApp.UserControls"
         mc:Ignorable="d" FlowDirection="RightToLeft" WindowStyle="None"  
         WindowStartupLocation="CenterScreen" Title="MainWindow"
-        Height="650" Width="900" MinHeight="650" MinWidth="900">
+        Height="650" Width="900" MinHeight="650" MinWidth="900" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -136,7 +136,7 @@
                            VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden"
                            CanContentScroll="False" SnapsToDevicePixels="True">
                 <StackPanel Name="SpMovieList" Orientation="Horizontal">
-                  <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="1" />
+                  <!--<uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="1" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="2" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="3" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="4" />
@@ -145,7 +145,7 @@
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="7" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="8" />
                   <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="9" />
-                  <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="10" />
+                  <uc:UCImageWithBoarder Source="/Images/s-l1600.jpg"   Value="10" />-->
                 </StackPanel>
             </ScrollViewer>
         </DockPanel>

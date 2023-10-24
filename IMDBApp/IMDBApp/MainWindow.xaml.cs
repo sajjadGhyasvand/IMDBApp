@@ -1,15 +1,21 @@
-﻿using IMDBApp.Views;
+﻿using DataLayer.Context;
+using IMDBApp.UserControls;
+using IMDBApp.Views;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace IMDBApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
+        private MovieContext _context = new MovieContext();
         public MainWindow()
         {
                 InitializeComponent();
@@ -69,7 +75,29 @@ namespace IMDBApp
             {
                 Owner = this,
             };
+            if (vw.ShowDialog() == true)
+            {
+                
+            }
             vw.ShowDialog();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadMovies();
+        }
+        private void LoadMovies()
+        {
+            foreach (var movie in _context.Movies)
+            {
+                var path = AppDomain.CurrentDomain.BaseDirectory + "\\Images\\Movie\\";
+                var poster = new BitmapImage(new Uri(path + movie.Poster));
+                var uc = new UCImageWithBoarder() { Value=movie, Source=poster };
+                uc.MouseWheel += Child_MouseWheel;
+                uc.MouseDown += Child_MouseDown;
+
+                SpMovieList.Children.Add(uc);
+            }
         }
     }
 }
