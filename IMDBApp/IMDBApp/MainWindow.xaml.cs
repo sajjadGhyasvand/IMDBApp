@@ -1,5 +1,7 @@
 ﻿using DataLayer.Context;
+using DataLayer.Entities;
 using IMDBApp.UserControls;
+using IMDBApp.Utilities;
 using IMDBApp.Views;
 using System;
 using System.Windows;
@@ -12,18 +14,19 @@ namespace IMDBApp
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    
+
     public partial class MainWindow : Window
     {
         private MovieContext _context = new MovieContext();
+        Movie _movie = new Movie();
         public MainWindow()
         {
-                InitializeComponent();
-                foreach (UIElement child in SpMovieList.Children)
-                {
-                    child.MouseDown += Child_MouseDown;
-                    child.MouseWheel += Child_MouseWheel;
-                }      
+            InitializeComponent();
+            /*foreach (UIElement child in SpMovieList.Children)
+            {
+                child.MouseDown += Child_MouseDown;
+                child.MouseWheel += Child_MouseWheel;
+            }     */
         }
         private void Child_MouseWheel(object sender, MouseWheelEventArgs e)
         {
@@ -34,9 +37,22 @@ namespace IMDBApp
         }
         private void Child_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if(MainGridPanel.Visibility != Visibility.Visible)
+            {
+                imgBackgorundDefault.Visibility = Visibility.Hidden;
+                imgBackground.Visibility = Visibility.Visible;
+                MainGridPanel.Visibility = Visibility.Visible;
+            }
             var uc = (UserControl)sender;
             if (uc.Content is Border border)
-                MessageBox.Show($"Tag Value: {border.Tag}");
+                if (border.Tag is Movie movie)
+                {
+                    this.DataContext = movie;
+                    _movie = movie;
+                }
+                else
+                    MessageBox.Show($"Tag Value: {border.Tag}");
+
         }
         private void BtnClose_OnClick(object sender, RoutedEventArgs e)
         {
@@ -76,26 +92,29 @@ namespace IMDBApp
                 Owner = this,
             };
             if (vw.ShowDialog() == true)
-            {
-                
-            }
+                LoadMovies();
             vw.ShowDialog();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.DataContext = _movie;
             LoadMovies();
         }
         private void LoadMovies()
         {
+            SpMovieList.Children.Clear();
             foreach (var movie in _context.Movies)
             {
-                var path = AppDomain.CurrentDomain.BaseDirectory + "\\Images\\Movie\\";
-                var poster = new BitmapImage(new Uri(path + movie.Poster));
+                var path = Varaible.ImageFullPath;
+                BitmapImage poster = null;
+                if (!string.IsNullOrEmpty(movie.Poster))
+                    poster = new BitmapImage(new Uri(path + movie.Poster));
+                else
+                    poster = new BitmapImage(new Uri(path + Varaible.DeaufultPoster));
                 var uc = new UCImageWithBoarder() { Value=movie, Source=poster };
                 uc.MouseWheel += Child_MouseWheel;
                 uc.MouseDown += Child_MouseDown;
-
                 SpMovieList.Children.Add(uc);
             }
         }

@@ -2,10 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:IMDBApp"
+             xmlns:convertor="clr-namespace:IMDBApp.Convertor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ImageBrush x:Key="BackgroundColorPrimary">#5C7780</ImageBrush>
         <ImageBrush x:Key="BackgroundColorSecondary">#A4B3C6</ImageBrush>
+        <convertor:PosterConvertor x:Key="PosterConvertor"/>
         <Style x:Key="BtnCircleStyle" TargetType="Button">
             <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="BorderThickness" Value="2"/>

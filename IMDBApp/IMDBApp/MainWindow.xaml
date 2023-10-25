@@ -28,10 +28,11 @@
             <TextBlock Grid.Column="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">بانک اطلاعاتی فیلم های من</TextBlock>
             <Rectangle Grid.Column="4" Fill="{StaticResource BackgroundColorSecondary}"/>
         </Grid>
-        <Image Grid.Row="1" Stretch="UniformToFill" Opacity="0.3"  Source="/Images/s-l1600.jpg"
-               HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Rectangle Grid.Row="1" Fill="{StaticResource BackgroundColorPrimary}" Opacity="0.3"/>
-        <Grid Grid.Row="1">
+        <Image Name="imgBackground" Grid.Row="1" Visibility="Hidden" Stretch="UniformToFill" Opacity="0.3"  Source="{Binding Path=Poster,Converter={StaticResource PosterConvertor}}"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Name="imgBackgorundDefault" Source="/Images/Default/002.jpg" Grid.Row="1" Stretch="UniformToFill" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+        <Grid Name="MainGridPanel" Grid.Row="1" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="200"/>
@@ -69,22 +70,22 @@
                             <ImageBrush ImageSource="/Images/create-new-pencil-button.png"></ImageBrush>
                         </Button.Background>
                     </Button>
-                    <TextBlock FontSize="30" >آخرین ما</TextBlock>
+                    <TextBlock Text="{Binding Path=Title}" FontSize="30" ></TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="1" Grid.Column="0">
-                    <TextBlock>The Last Of Us</TextBlock>
+                    <TextBlock  Text="{Binding Path=TagLine}"></TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="2" Grid.Column="0">
                     <Image Width="20" Source="/Images/rate-star-button.png"></Image>
-                    <TextBlock>8.1</TextBlock>
+                    <TextBlock  Text="{Binding Path=IMDBRate}"></TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="2" Grid.Column="1">
-                    <Image Width="20" Source="/Images/connection-indicator.png"></Image>
-                    <TextBlock>2022</TextBlock>
+                    <Image Width="20" Source="/Images/Movie/connection-indicator.png"></Image>
+                    <TextBlock Text="{Binding Path=Year}"></TextBlock>
                 </DockPanel>
                 <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
                     <Image Width="20" Source="/Images/clapperboard.png"></Image>
-                    <TextBlock>2022</TextBlock>
+                    <TextBlock Text="{Binding Path=IMDBRate}"></TextBlock>
                 </DockPanel>
                 <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">خلاصه داستان</TextBlock>
                 <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap">
@@ -101,9 +102,7 @@
                 <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
                     بازیگر1 - بازیگر2 - بازیگر3 - بازیگر 4
                 </TextBlock>
-                <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
-                    نیل دراکمن 
-                </TextBlock>
+                <TextBlock Text="{Binding Path=DirectorId}"  Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"></TextBlock>
                 <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 10 "
                             Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Style="{StaticResource BtnCircleStyle}" Name="BtnAddMovie" Width="30" Height="30" BorderBrush="Black" Margin="5 0" Click="BtnAddMovie_Click">
@@ -118,7 +117,7 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <Image Grid.Column="1" Source="/s-l1600.jpg" ></Image>
+            <Image Grid.Column="1" Source="{Binding Path=Poster,Converter={StaticResource PosterConvertor}}" ></Image>
         </Grid>
         <DockPanel Grid.Row="2">
             <DockPanel.Resources>
