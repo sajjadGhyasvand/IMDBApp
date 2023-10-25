@@ -118,5 +118,20 @@ namespace IMDBApp
                 SpMovieList.Children.Add(uc);
             }
         }
+
+        private void BtnEditMovie_Click(object sender, RoutedEventArgs e)
+        {
+            var vw = new vwAddOrEditMovie()
+            {
+                Owner = this,
+                Movie = _movie,
+            };
+            vw.Title = $"ویرایش {_movie.Title}";
+            vw.btnAdd.Content = "ویرایش";
+                
+            if (vw.ShowDialog() == true)
+                LoadMovies();
+            vw.ShowDialog();
+        }
     }
 }

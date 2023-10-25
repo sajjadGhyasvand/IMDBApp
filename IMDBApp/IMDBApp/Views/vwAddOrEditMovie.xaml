@@ -67,7 +67,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Image Height="100" Name="imgPoster" Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="2" Source="/Images/s-l1600.jpg"/>
+                        <Image Height="100" Name="imgPoster" Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="2" />
                         <Label Name="txtPosterName"  Content="{Binding Poster}" Grid.Column="0"   Grid.Row="1" BorderThickness="1" BorderBrush="Gray"  Grid.ColumnSpan="2"   />
                         <Button Name="btnPoster" Grid.Column="1" Grid.Row="1" Content="انتخاب" Foreground="Black" Background="LightGray" Height="20" VerticalAlignment="Top" Click="btnPoster_Click" />
                     </Grid>

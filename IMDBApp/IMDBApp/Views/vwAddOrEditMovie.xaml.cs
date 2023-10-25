@@ -1,5 +1,6 @@
 ﻿using DataLayer.Context;
 using DataLayer.Entities;
+using IMDBApp.Utilities;
 using Microsoft.Win32;
 using System;
 using System.IO;
@@ -20,7 +21,7 @@ namespace IMDBApp.Views
         public vwAddOrEditMovie()
         {
             InitializeComponent();
-            this.DataContext = Movie;
+           
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -52,6 +53,11 @@ namespace IMDBApp.Views
             cmbDirector.ItemsSource = _context.Directors.ToList();
             cmbDirector.SelectedIndex = 0;
             lstCast.ItemsSource = _context.Actors.ToList();
+            this.DataContext = Movie;
+            if (!string.IsNullOrEmpty(Movie.Poster))
+            {
+                imgPoster.Source = new BitmapImage(new Uri(Varaible.ImageFullPath+Movie.Poster));
+            }
         }
 
         private void btnPoster_Click(object sender, RoutedEventArgs e)

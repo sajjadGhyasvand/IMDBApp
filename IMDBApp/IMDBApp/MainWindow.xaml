@@ -65,7 +65,7 @@
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
                 <DockPanel  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Button DockPanel.Dock="Right" Style="{StaticResource BtnCircleStyle}" Name="BtnEditMovie" Width="30" Height="30" BorderBrush="Black">
+                    <Button DockPanel.Dock="Right" Style="{StaticResource BtnCircleStyle}" Name="BtnEditMovie" Click="BtnEditMovie_Click" Width="30" Height="30" BorderBrush="Black">
                         <Button.Background>
                             <ImageBrush ImageSource="/Images/create-new-pencil-button.png"></ImageBrush>
                         </Button.Background>
