@@ -133,5 +133,11 @@ namespace IMDBApp
                 LoadMovies();
             vw.ShowDialog();
         }
+
+        private void BtnDeleteMovie_Click(object sender, RoutedEventArgs e)
+        {
+            _context.Movies.Remove(_movie);
+            _context.SaveChanges();
+        }
     }
 }

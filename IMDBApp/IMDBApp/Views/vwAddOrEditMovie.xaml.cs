@@ -26,19 +26,37 @@ namespace IMDBApp.Views
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtPosterName.Content.ToString()) )
+            if (_dialog!=null && !string.IsNullOrEmpty(_dialog.FileName))
             {
                 var path = AppDomain.CurrentDomain.BaseDirectory + "\\Images\\Movie\\";
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
+              /*  if (!string.IsNullOrEmpty(Movie.Poster) && File.Exists(Varaible.ImageFullPath+Movie.Poster))
+                  File.Delete(Varaible.ImageFullPath+Movie.Poster);*/
+
                 var imageName = Guid.NewGuid().ToString().Replace("-","");  
                 var ext = System.IO.Path.GetExtension(_dialog.SafeFileName);
                 var fullImageName = imageName + ext;
                 File.Copy(_dialog.FileName, path + fullImageName);
                 Movie.Poster = fullImageName;
             }
-            Movie.CreateDate = System.DateTime.Now;
-            _context.Movies.Add(Movie);
+            if (Movie.Id == 0)
+            {
+                Movie.CreateDate = System.DateTime.Now;
+                _context.Movies.Add(Movie);
+            }
+            else
+            {
+                var dbModel = _context.Movies.Single(c => c.Id == Movie.Id);
+                dbModel.Title = Movie.Title;
+                dbModel.Description = Movie.Description;
+                dbModel.IMDBRate = Movie.IMDBRate;
+                dbModel.DirectorId = (int)cmbDirector.SelectedValue;
+                dbModel.Poster = Movie.Poster;  
+                dbModel.TagLine = Movie.TagLine;
+                dbModel.Year = Movie.Year;
+                dbModel.Description = Movie.Description;
+            }
             _context.SaveChanges();
             this.DialogResult = true;
         }

@@ -110,7 +110,7 @@
                             <ImageBrush ImageSource="/Images/add-plus-button.png"></ImageBrush>
                         </Button.Background>
                     </Button>
-                    <Button Style="{StaticResource BtnCircleStyle}" Name="BtnDeleteMovie" Width="30" Height="30" BorderBrush="Black">
+                    <Button  Style="{StaticResource BtnCircleStyle}" Click="BtnDeleteMovie_Click" Name="BtnDeleteMovie" Width="30" Height="30" BorderBrush="Black">
                         <Button.Background>
                             <ImageBrush ImageSource="/Images/horizontal-line-remove-button.png"></ImageBrush>
                         </Button.Background>
