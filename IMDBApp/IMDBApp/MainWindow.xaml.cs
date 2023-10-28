@@ -4,6 +4,7 @@ using IMDBApp.UserControls;
 using IMDBApp.Utilities;
 using IMDBApp.Views;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -108,7 +109,7 @@ namespace IMDBApp
             {
                 var path = Varaible.ImageFullPath;
                 BitmapImage poster = null;
-                if (!string.IsNullOrEmpty(movie.Poster))
+                if (!string.IsNullOrEmpty(movie.Poster) && File.Exists(path + movie.Poster))
                     poster = new BitmapImage(new Uri(path + movie.Poster));
                 else
                     poster = new BitmapImage(new Uri(path + Varaible.DeaufultPoster));

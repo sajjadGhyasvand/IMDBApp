@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IMDBApp.Views"
+        xmlns:validate="clr-namespace:IMDBApp.Validation"
         mc:Ignorable="d" FlowDirection="RightToLeft" WindowStartupLocation="CenterOwner"
         WindowStyle="None" WindowState="Normal" ShowInTaskbar="False"
         Title="vwAddOrEditMovie" Height="400" Width="500" Loaded="Window_Loaded">
@@ -41,11 +42,27 @@
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Column="0" Grid.Row="0">
                     <Label DockPanel.Dock="Left">عنوان:</Label>
-                    <TextBox Name="txtTitle" Text="{Binding Title}" ></TextBox>
+                    <TextBox Name="txtTitle" >
+                        <TextBox.Text>
+                            <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validate:RequiredValidation ValidatesOnTargetUpdated="True"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </DockPanel>
                 <DockPanel Grid.Column="1" Grid.Row="0">
                     <Label DockPanel.Dock="Left">سال ساخت:</Label>
-                    <TextBox Name="txtYear" Text="{Binding Year}" ></TextBox>
+                    <TextBox Name="txtYear">
+                        <TextBox.Text>
+                            <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validate:RequiredValidation ValidatesOnTargetUpdated="True"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </DockPanel>
                 <DockPanel Grid.Column="0" Grid.Row="1">
                     <Label DockPanel.Dock="Left">کارگردان:</Label>
@@ -54,7 +71,15 @@
 
                 <DockPanel Grid.Column="1" Grid.Row="1">
                     <Label DockPanel.Dock="Left">امتیاز IMDB:</Label>
-                    <TextBox Name="txtIMDB"  Text="{Binding IMDBRate}"></TextBox>
+                    <TextBox Name="txtIMDB">
+                        <TextBox.Text>
+                            <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validate:RequiredValidation ValidatesOnTargetUpdated="True"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </DockPanel>
                 <DockPanel Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
                     <Label DockPanel.Dock="Left">نصویر:</Label>
@@ -78,7 +103,15 @@
                 </DockPanel>
                 <DockPanel Grid.Column="0" Grid.Row="3">
                     <Label DockPanel.Dock="Left">توضیح مختصر:</Label>
-                    <TextBox Name="txtTagLine"  Text="{Binding TagLine}" />
+                    <TextBox Name="txtTagLine" >
+                        <TextBox.Text>
+                            <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validate:RequiredValidation ValidatesOnTargetUpdated="True"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </DockPanel>
                 <DockPanel Grid.Column="0" Grid.Row="2">
                     <Label DockPanel.Dock="Left">توضیحات:</Label>
