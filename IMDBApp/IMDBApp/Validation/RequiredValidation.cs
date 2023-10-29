@@ -12,8 +12,11 @@ namespace IMDBApp.Validation
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if(!string.IsNullOrEmpty(value?.ToString()))
-                return ValidationResult.ValidResult;
+            if (!string.IsNullOrEmpty(value?.ToString()))
+                if (value.ToString() != "0")
+                    return ValidationResult.ValidResult;
+                else
+                    return new ValidationResult(false, "لطفا یک گزینه را انتخاب کنید !");
             return new ValidationResult(false, "فیلد اجباری!");
         }
     }

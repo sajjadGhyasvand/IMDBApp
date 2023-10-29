@@ -8,6 +8,17 @@
         mc:Ignorable="d" FlowDirection="RightToLeft" WindowStartupLocation="CenterOwner"
         WindowStyle="None" WindowState="Normal" ShowInTaskbar="False"
         Title="vwAddOrEditMovie" Height="400" Width="500" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ControlTemplate x:Key="ErrorTemplate">
+            <DockPanel>
+                <Label DockPanel.Dock="Top" Content="!" VerticalAlignment="Top" Cursor="Help" HorizontalAlignment="Right" ToolTip="{Binding ElementName=AdornedElementPlaceholder,Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" FontWeight="Bold" Foreground="Orange"/>
+                <Border BorderBrush="Orange" BorderThickness="1" >
+                    <AdornedElementPlaceholder Name="AdornedElementPlaceholder"/>
+
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <Grid  DockPanel.Dock="Bottom">
@@ -15,11 +26,11 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-               
+
             </Grid>
             <Grid>
                 <Grid.Resources>
-                 
+
                     <Style TargetType="DockPanel">
                         <Setter Property="Margin" Value="5"/>
                     </Style>
@@ -42,7 +53,7 @@
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Column="0" Grid.Row="0">
                     <Label DockPanel.Dock="Left">عنوان:</Label>
-                    <TextBox Name="txtTitle" >
+                    <TextBox Name="txtTitle" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" >
                         <TextBox.Text>
                             <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -54,7 +65,7 @@
                 </DockPanel>
                 <DockPanel Grid.Column="1" Grid.Row="0">
                     <Label DockPanel.Dock="Left">سال ساخت:</Label>
-                    <TextBox Name="txtYear">
+                    <TextBox Name="txtYear" Validation.ErrorTemplate="{StaticResource ErrorTemplate}">
                         <TextBox.Text>
                             <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -66,12 +77,20 @@
                 </DockPanel>
                 <DockPanel Grid.Column="0" Grid.Row="1">
                     <Label DockPanel.Dock="Left">کارگردان:</Label>
-                    <ComboBox  Name="cmbDirector" DisplayMemberPath="FullName" SelectedValuePath="Id" SelectedValue="{Binding DirectorId}" /> 
+                    <ComboBox  Name="cmbDirector" DisplayMemberPath="FullName" SelectedValuePath="Id" Validation.ErrorTemplate="{StaticResource ErrorTemplate}">
+                        <ComboBox.SelectedValue>
+                            <Binding Path="DirectorId" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validate:RequiredValidation ValidatesOnTargetUpdated="True"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedValue>
+                    </ComboBox>
                 </DockPanel>
 
                 <DockPanel Grid.Column="1" Grid.Row="1">
                     <Label DockPanel.Dock="Left">امتیاز IMDB:</Label>
-                    <TextBox Name="txtIMDB">
+                    <TextBox Name="txtIMDB"  Validation.ErrorTemplate="{StaticResource ErrorTemplate}">
                         <TextBox.Text>
                             <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -120,7 +139,7 @@
                 <Button Name="btnAdd" Background="Green" Height="30" Grid.Column="0" Grid.Row="5" Click="btnAdd_Click">افزودن</Button>
                 <Button Name="btnCancel" Background="Red" Height="30" Grid.Column="1" Grid.Row="5" Click="btnCancel_Click" >انصراف</Button>
             </Grid>
-            
+
         </DockPanel>
     </Grid>
 </Window>

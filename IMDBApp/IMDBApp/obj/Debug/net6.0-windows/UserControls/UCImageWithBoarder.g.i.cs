@@ -52,7 +52,7 @@ namespace IMDBApp.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/IMDBApp;V1.0.0.0;component/usercontrols/ucimagewithboarder.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/IMDBApp;component/usercontrols/ucimagewithboarder.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\UCImageWithBoarder.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

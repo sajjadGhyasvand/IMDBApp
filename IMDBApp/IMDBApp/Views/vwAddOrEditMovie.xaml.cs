@@ -68,7 +68,9 @@ namespace IMDBApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cmbDirector.ItemsSource = _context.Directors.ToList();
+            var directoes = _context.Directors.ToList();
+            directoes.Insert(0, new Director() { Id=0, FullName="انتخاب کنید" });
+            cmbDirector.ItemsSource = directoes;
             cmbDirector.SelectedIndex = 0;
             lstCast.ItemsSource = _context.Actors.ToList();
             this.DataContext = Movie;
