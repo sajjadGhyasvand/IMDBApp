@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\App.xaml
-3969703576
+6-359193227
 
-13392671966
+16-425594125
 215-1153183629
-MainWindow.xaml;UserControls\UCImageWithBoarder.xaml;Views\vwAddOrEditMovie.xaml;
+MainWindow.xaml;UserControls\UCDirectors.xaml;UserControls\UCGenres.xaml;UserControls\UCImageWithBoarder.xaml;Views\vwAddOrEditMovie.xaml;Views\vwConfig.xaml;
 
-True
+False
 

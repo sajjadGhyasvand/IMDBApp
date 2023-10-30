@@ -9,10 +9,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="UserControls\UCDirectors.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\UCGenres.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\UCImageWithBoarder.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\vwAddOrEditMovie.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\vwConfig.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -20,10 +29,19 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControls\UCDirectors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCGenres.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControls\UCImageWithBoarder.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\vwAddOrEditMovie.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\vwConfig.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

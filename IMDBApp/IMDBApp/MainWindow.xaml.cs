@@ -143,5 +143,11 @@ namespace IMDBApp
             _context.Movies.Remove(_movie);
             _context.SaveChanges();
         }
+
+        private void btnConfig_Click(object sender, RoutedEventArgs e)
+        {
+            var vw = new vwConfig() { Owner = this, WindowStartupLocation = WindowStartupLocation.CenterOwner };
+            vw.ShowDialog();
+        }
     }
 }

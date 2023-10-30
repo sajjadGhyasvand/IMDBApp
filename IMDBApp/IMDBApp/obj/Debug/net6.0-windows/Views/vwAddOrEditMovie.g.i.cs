@@ -150,7 +150,7 @@ namespace IMDBApp.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/IMDBApp;V1.0.0.0;component/views/vwaddoreditmovie.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/IMDBApp;component/views/vwaddoreditmovie.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\vwAddOrEditMovie.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

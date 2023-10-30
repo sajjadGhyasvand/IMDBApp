@@ -26,7 +26,18 @@
             <Button Name="BtmMinus" Click="BtmMinus_OnClick" Grid.Column="1" Width="40" Height="40" Style="{StaticResource BtnCircleStyle}">_</Button>
             <Rectangle Name="RecTop" MouseDown="RecTop_OnMouseDown"  Grid.Column="2" Fill="{StaticResource BackgroundColorSecondary}" Cursor="ScrollAll"/>
             <TextBlock Grid.Column="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">بانک اطلاعاتی فیلم های من</TextBlock>
-            <Rectangle Grid.Column="4" Fill="{StaticResource BackgroundColorSecondary}"/>
+            <WrapPanel FlowDirection="LeftToRight"  Grid.Column="4" Background="{StaticResource BackgroundColorSecondary}">
+                <Button Name="btnConfig" Click="btnConfig_Click" Width="40" Height="40" Style="{StaticResource BtnCircleStyle}">
+                    <Button.Content>
+                        <Image Source="/Images/config.png" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btnAddMain" Width="40" Height="40" BorderBrush="White" Click="BtnAddMovie_Click" Style="{StaticResource BtnCircleStyle}">
+                    <Button.Content>
+                        <Image Source="/Images/add-plus-button.png"  />
+                    </Button.Content>
+                </Button>
+            </WrapPanel>
         </Grid>
         <Rectangle Grid.Row="1" Fill="{StaticResource BackgroundColorPrimary}" Opacity="0.3"/>
         <Image Name="imgBackground" Grid.Row="1" Visibility="Hidden" Stretch="UniformToFill" Opacity="0.3"  Source="{Binding Path=Poster,Converter={StaticResource PosterConvertor}}"

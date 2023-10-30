@@ -58,3 +58,9 @@ C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\bin\Debug\net6.0-windo
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\bin\Debug\net6.0-windows\DataLayer.pdb
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\IMDBApp.csproj.CopyComplete
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\Views\vwConfig.g.cs
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\Views\vwConfig.baml
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\UserControls\UCDirectors.g.cs
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\UserControls\UCGenres.g.cs
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\UserControls\UCDirectors.baml
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\UserControls\UCGenres.baml
