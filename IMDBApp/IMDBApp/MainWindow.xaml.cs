@@ -3,8 +3,10 @@ using DataLayer.Entities;
 using IMDBApp.UserControls;
 using IMDBApp.Utilities;
 using IMDBApp.Views;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -38,7 +40,7 @@ namespace IMDBApp
         }
         private void Child_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(MainGridPanel.Visibility != Visibility.Visible)
+            if (MainGridPanel.Visibility != Visibility.Visible)
             {
                 imgBackgorundDefault.Visibility = Visibility.Hidden;
                 imgBackground.Visibility = Visibility.Visible;
@@ -129,10 +131,11 @@ namespace IMDBApp
             };
             vw.Title = $"ویرایش {_movie.Title}";
             vw.btnAdd.Content = "ویرایش";
-                
-            if (vw.ShowDialog() == true)
+
+            var result = vw.ShowDialog();
+            DataContext = _movie = _context.Movies.AsNoTracking().Single(c=>c.Id == _movie.Id);
+            if (result == true)
                 LoadMovies();
-            vw.ShowDialog();
         }
 
         private void BtnDeleteMovie_Click(object sender, RoutedEventArgs e)
