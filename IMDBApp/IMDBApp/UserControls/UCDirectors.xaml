@@ -4,11 +4,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IMDBApp.UserControls"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  FlowDirection="RightToLeft"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid Name="GrdList" IsReadOnly="True">
-            
-        </DataGrid> 
+        <DockPanel >
+            <GroupBox DockPanel.Dock="Top" Header="افزودن">
+                <StackPanel Name="SpAddDirector" Orientation="Horizontal">
+                    <Label>نام:</Label>
+                    <TextBox Width="100" Text="{Binding FullName}"></TextBox>
+                    <Label>توضیحات:</Label>
+                    <TextBox Width="100" Text="{Binding Bio}"></TextBox>
+                    <Button Name="BtnAddDirector" Click="BtnAddDirector_Click">افزودن</Button>
+                </StackPanel>
+            </GroupBox>
+            <DataGrid Name="GrdList" CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Width="50" Header="کد کارگردان" />
+                    <DataGridTextColumn Binding="{Binding FullName}" Width=".3*" Header="نام و نام خانوادگی" />
+                    <DataGridTextColumn Binding="{Binding Bio}" Width=".7*" Header="توضیحات" />
+                    <DataGridTemplateColumn Header="دستورات" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Name="BtnEdit" Click="BtnEdit_Click" Tag="{Binding Path=.}"> ویرایش</Button>
+                                    <Button Name="BtnDelete" Click="BtnDelete_Click" Tag="{Binding Path=.}"> حذف</Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
     </Grid>
 </UserControl>
