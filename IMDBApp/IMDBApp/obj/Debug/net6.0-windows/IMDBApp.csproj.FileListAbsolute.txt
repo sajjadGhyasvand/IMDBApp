@@ -64,3 +64,6 @@ C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\bin\Debug\net6.0-windo
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\bin\Debug\net6.0-windows\IMDBApp.pdb
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\IMDBApp.csproj.CopyComplete
 C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\obj\Debug\net6.0-windows\IMDBApp.genruntimeconfig.cache
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\S.Ghiasvand\source\repos\IMDBApp\IMDBApp\IMDBApp\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll

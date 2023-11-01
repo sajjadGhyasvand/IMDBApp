@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:IMDBApp.UserControls"
              mc:Ignorable="d"  FlowDirection="RightToLeft"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -26,8 +27,8 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Name="BtnEdit" Click="BtnEdit_Click" Tag="{Binding Path=.}"> ویرایش</Button>
-                                    <Button Name="BtnDelete" Click="BtnDelete_Click" Tag="{Binding Path=.}"> حذف</Button>
+                                    <Button Name="BtnEdit" Click="BtnEdit_Click" Tag="{Binding Path=.}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Content="{materialDesign:PackIcon Kind=Edit}" />
+                                    <Button Name="BtnDelete" Click="BtnDelete_Click" Tag="{Binding Path=.}"  Content="{materialDesign:PackIcon Kind=Trash}" /> 
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
